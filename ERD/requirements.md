@@ -1,4 +1,4 @@
-**Entities and Their Attributes:
+Entities and Their Attributes:
 User
 
 user_id (PK, UUID, Indexed)
@@ -172,4 +172,4 @@ A Message is received by exactly one User.
 
 Relationship: One-to-Many (1:N)
 
-Connection: Message.recipient_id -> User.user_id**
+Connection: Message.recipient_id -> User.user_id
