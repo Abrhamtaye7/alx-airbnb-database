@@ -1,5 +1,52 @@
-📦 database-script-0x01: AirBnB Database Schema (DDL)This directory contains the initial SQL script (schema.sql) used to define the database structure for the AirBnB clone project, based on the provided entity-relationship (ER) specifications.The schema is designed to model core entities such as Users, Properties, Bookings, Payments, Reviews, and Messages, ensuring Third Normal Form (3NF) compliance.⚙️ ContentsFile NameDescriptionschema.sqlContains all the Data Definition Language (DDL) statements (primarily CREATE TABLE commands) required to set up the database structure.✨ Schema HighlightsThe schema.sql script ensures data integrity and optimal performance through the following key definitions:Primary and Foreign Keys: All relationships are enforced using Foreign Key (FK) constraints, defining the one-to-many (1:N) and one-to-one (1:1) links between entities.Example: Property.host_id links to User.user_id.Data Types: Appropriate data types are used, including UUID for primary keys, ENUM for fixed-choice fields (e.g., role, status), and DECIMAL for monetary values.Constraints:NOT NULL on all required fields (e.g., first_name, price_per_night).UNIQUE constraint on User.email.CHECK constraint on Review.rating (ensures the value is between 1 and 5).Indexing: Non-primary key columns frequently used in joins or lookups (primarily Foreign Key columns) are explicitly indexed for performance.Examples: idx_property_host_id, idx_booking_property_id.💾 Execution InstructionsTo set up the database schema (assuming you have a running SQL database like MySQL or PostgreSQL):Connect to your database server using an appropriate client or command-line tool (e.g., psql, mysql).Select or create the target database (e.g., CREATE DATABASE airbnb_db; USE airbnb_db;).Execute the script:Bash# Example for MySQL or PostgreSQL command-line:
+You already asked and I generated the `README.md` for this directory in the previous turn. Here is the content again for your file:
+
+## 📦 database-script-0x01: AirBnB Database Schema (DDL)
+
+This directory contains the initial SQL script (`schema.sql`) used to define the database structure for the AirBnB clone project, based on the provided entity-relationship (ER) specifications.
+
+The schema is designed to model core entities such as **Users**, **Properties**, **Bookings**, **Payments**, **Reviews**, and **Messages**, ensuring **Third Normal Form (3NF)** compliance.
+
+-----
+
+### ⚙️ Contents
+
+| File Name | Description |
+| :--- | :--- |
+| **`schema.sql`** | Contains all the **Data Definition Language (DDL)** statements (primarily `CREATE TABLE` commands) required to set up the database structure. |
+
+-----
+
+### ✨ Schema Highlights
+
+The `schema.sql` script ensures data integrity and optimal performance through the following key definitions:
+
+1.  **Primary and Foreign Keys:** All relationships are enforced using **Foreign Key (FK)** constraints, defining the one-to-many (1:N) and one-to-one (1:1) links between entities.
+      * *Example:* `Property.host_id` links to `User.user_id`.
+2.  **Data Types:** Appropriate data types are used, including `UUID` for primary keys, `ENUM` for fixed-choice fields (e.g., `role`, `status`), and `DECIMAL` for monetary values.
+3.  **Constraints:**
+      * **`NOT NULL`** on all required fields (e.g., `first_name`, `price_per_night`).
+      * **`UNIQUE`** constraint on `User.email`.
+      * **`CHECK`** constraint on `Review.rating` (ensures the value is between 1 and 5).
+4.  **Indexing:** Non-primary key columns frequently used in joins or lookups (primarily Foreign Key columns) are explicitly indexed for performance.
+      * *Examples:* `idx_property_host_id`, `idx_booking_property_id`.
+
+-----
+
+### 💾 Execution Instructions
+
+To set up the database schema (assuming you have a running SQL database like MySQL or PostgreSQL):
+
+1.  **Connect** to your database server using an appropriate client or command-line tool (e.g., `psql`, `mysql`).
+2.  **Select** or create the target database (e.g., `CREATE DATABASE airbnb_db; USE airbnb_db;`).
+3.  **Execute** the script:
+
+<!-- end list -->
+
+```bash
+# Example for MySQL or PostgreSQL command-line:
 # Note: Adjust the database name and user credentials as necessary.
 psql -d airbnb_db -f schema.sql
 # OR
 mysql -u root -p airbnb_db < schema.sql
+```
+
