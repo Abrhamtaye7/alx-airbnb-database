@@ -59,18 +59,20 @@ SHOW INDEX FROM users;
 SHOW INDEX FROM bookings;
 SHOW INDEX FROM properties;
 
-
 -- ==============================================================
 -- 3.4 Performance Comparison Example
 -- ==============================================================
 
 -- Before adding indexes, run:
 EXPLAIN SELECT * FROM bookings WHERE user_id = 5;
+EXPLAIN ANALYZE SELECT * FROM bookings WHERE user_id = 5;
 
 -- After adding indexes, run again:
 EXPLAIN SELECT * FROM bookings WHERE user_id = 5;
+EXPLAIN ANALYZE SELECT * FROM bookings WHERE user_id = 5;
 
 -- Compare key usage, rows examined, and execution time.
+-- EXPLAIN shows the query plan; EXPLAIN ANALYZE provides actual run-time performance.
 
 
 -- ====================================================================
