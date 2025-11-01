@@ -65,6 +65,45 @@ LEFT JOIN users AS u
 WHERE u.user_id IS NULL;
     who listed each property.
 
+---
+
+---
+
+## 🔍 Task 1 — Practice Subqueries
+**Goal:**  
+Use subqueries (both non-correlated and correlated) to retrieve insights from multiple related tables.
+
+### 1️⃣ Non-Correlated Subquery — Properties with High Ratings
+Find properties that have an **average rating greater than 4.0**.
+
+```sql
+SELECT
+  p.property_id, p.name, p.location
+FROM properties AS p
+WHERE p.property_id IN (
+  SELECT property_id
+  FROM reviews
+  GROUP BY property_id
+  HAVING AVG(rating) > 4.0
+);
+
+
+## 🧮 Task 2 — Apply Aggregations and Window Functions
+**Goal:**  
+Use MySQL’s aggregation and window functions to summarize and rank data efficiently.
+
+### 1️⃣ Total Bookings by Each User
+Count all bookings per user using `COUNT()` and `GROUP BY`.
+
+```sql
+SELECT
+  u.user_id,
+  CONCAT(u.first_name, ' ', u.last_name) AS full_name,
+  COUNT(b.booking_id) AS total_bookings
+FROM users AS u
+LEFT JOIN bookings AS b
+  ON u.user_id = b.user_id
+GROUP BY u.user_id, full_name;
 
 
 ### How to Run the Script

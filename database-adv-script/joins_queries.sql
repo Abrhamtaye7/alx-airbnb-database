@@ -2,7 +2,6 @@
 -- ALX Airbnb Database Module
 -- Task 0: Write Complex Queries with Joins
 -- File: joins_queries.sql
--- Author: <Your Name>
 -- ====================================================================
 -- Description:
 -- This script demonstrates advanced SQL joins on a simulated Airbnb
