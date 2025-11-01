@@ -34,7 +34,9 @@ JOIN properties AS p
 JOIN payments AS pay
     ON b.payment_id = pay.payment_id
 WHERE pay.status = 'completed'
+  AND b.start_date IS NOT NULL
 ORDER BY b.start_date DESC;
+
 
 
 
