@@ -12,12 +12,12 @@
 -- ==============================================================
 -- 3.1 Identify High-Usage Columns
 -- Based on frequent joins, filters, and sorts, we will index:
--- - users.email                (fast login/user lookup)
--- - bookings.user_id           (join/filter by user)
--- - bookings.property_id       (join/filter by property)
--- - bookings.start_date        (filter by date ranges)
--- - properties.host_id         (join/filter by host)
--- - properties.location        (search optimization)
+users.email                (fast login/user lookup)
+bookings.user_id           (join/filter by user)
+bookings.property_id       (join/filter by property)
+bookings.start_date        (filter by date ranges)
+properties.host_id         (join/filter by host)
+properties.location        (search optimization)
 -- ==============================================================
 
 
@@ -65,10 +65,10 @@ SHOW INDEX FROM properties;
 -- ==============================================================
 
 -- Before adding indexes, run:
--- EXPLAIN SELECT * FROM bookings WHERE user_id = 5;
+EXPLAIN SELECT * FROM bookings WHERE user_id = 5;
 
 -- After adding indexes, run again:
--- EXPLAIN SELECT * FROM bookings WHERE user_id = 5;
+EXPLAIN SELECT * FROM bookings WHERE user_id = 5;
 
 -- Compare key usage, rows examined, and execution time.
 
